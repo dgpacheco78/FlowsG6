@@ -1,0 +1,296 @@
+[
+    {
+        "id": "e3fb8373f84c7a0f",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "86857a461276f4e6",
+        "type": "mqtt in",
+        "z": "e3fb8373f84c7a0f",
+        "name": "",
+        "topic": "casa/pacheco",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "edd3004a.11da88",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "13f3ccf50c0f35a0"
+            ]
+        ]
+    },
+    {
+        "id": "13f3ccf50c0f35a0",
+        "type": "json",
+        "z": "e3fb8373f84c7a0f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "10e86fb7f9723df7",
+                "5a20a195f891b6eb",
+                "35d0301d14d8c621"
+            ]
+        ]
+    },
+    {
+        "id": "10e86fb7f9723df7",
+        "type": "function",
+        "z": "e3fb8373f84c7a0f",
+        "name": "",
+        "func": "msg.payload = msg.payload.id;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 160,
+        "wires": [
+            [
+                "6018a374fa4a9f52"
+            ]
+        ]
+    },
+    {
+        "id": "5a20a195f891b6eb",
+        "type": "function",
+        "z": "e3fb8373f84c7a0f",
+        "name": "",
+        "func": "msg.payload = msg.payload.temp;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "8e360637b86cfd02"
+            ]
+        ]
+    },
+    {
+        "id": "35d0301d14d8c621",
+        "type": "function",
+        "z": "e3fb8373f84c7a0f",
+        "name": "",
+        "func": "msg.topic = msg.payload.id;\nmsg.payload = msg.payload.temp;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 240,
+        "wires": [
+            [
+                "1faadc9fcaecd7de"
+            ]
+        ]
+    },
+    {
+        "id": "6018a374fa4a9f52",
+        "type": "ui_text",
+        "z": "e3fb8373f84c7a0f",
+        "group": "8049639ec0a25202",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Nombre",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 890,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8e360637b86cfd02",
+        "type": "ui_gauge",
+        "z": "e3fb8373f84c7a0f",
+        "name": "",
+        "group": "8049639ec0a25202",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "45",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 900,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1faadc9fcaecd7de",
+        "type": "ui_chart",
+        "z": "e3fb8373f84c7a0f",
+        "name": "",
+        "group": "86ba1e93c6dceeca",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Historico de temperatura",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-30",
+        "ymax": "45",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 940,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8efd97d6f8d7e510",
+        "type": "ui_switch",
+        "z": "e3fb8373f84c7a0f",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "8049639ec0a25202",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 240,
+        "y": 380,
+        "wires": [
+            [
+                "bbb7cb0d7e7e8e0b"
+            ]
+        ]
+    },
+    {
+        "id": "bbb7cb0d7e7e8e0b",
+        "type": "mqtt out",
+        "z": "e3fb8373f84c7a0f",
+        "name": "",
+        "topic": "casa/pacheco/swith",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "edd3004a.11da88",
+        "x": 480,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "edd3004a.11da88",
+        "type": "mqtt-broker",
+        "name": "HiveMQ",
+        "broker": "35.156.220.109",
+        "port": "1883",
+        "clientid": "dgpacheco74747474",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "8049639ec0a25202",
+        "type": "ui_group",
+        "name": "Valores Actuales",
+        "tab": "3eef13b2273eeb0e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "86ba1e93c6dceeca",
+        "type": "ui_group",
+        "name": "Grafica",
+        "tab": "3eef13b2273eeb0e",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "3eef13b2273eeb0e",
+        "type": "ui_tab",
+        "name": "Flow 4 ",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
