@@ -1,3 +1,16 @@
 mosquitto_sub -h 35.156.220.109 -t casa/pacheco -q 2 -i dgpacheco777
 
 mosquitto_pub -h 35.156.220.109 -t casa/pacheco -q 2 -i dgpacheco78 -m "{\"id\": \"Bicho\", \"temp\": \"22\"}"
+
+mosquitto_sub -h 35.156.220.109 -t casa/pacheco/swith -q 2 -i dgpacheco777
+
+
+
+Hacer disponible mi red
+1. Obtener mi IP local: ifconfig
+2. Obtener mi IP publica: en el buscador poner "my public ip" 177.228.5.192
+3. Pagina de configuracion de mi router: 
+4. Busca modelo del router:
+5. Investigar nombre de usuario y contraseña: admin *******
+6. Entrar a la configuracion del modem:
+7. Entrar a port forwaring / redireccionamiento de puertos
