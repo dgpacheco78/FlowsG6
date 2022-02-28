@@ -1,0 +1,7 @@
+Cargar el programa ESP32CAM-Wifi-Basic:
+
+https://github.com/codigo-iot/ESP32CAM-WiFi-Basic/blob/main/ESP32CAM-WiFi-Basic/ESP32CAM-WiFi-Basic.ino
+
+Cargar:
+
+https://github.com/codigo-iot/ESP32CAM_MQTT-Basic
