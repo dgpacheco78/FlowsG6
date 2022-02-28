@@ -14,3 +14,5 @@ Hacer disponible mi red
 5. Investigar nombre de usuario y contraseña: admin *******
 6. Entrar a la configuracion del modem:
 7. Entrar a port forwaring / redireccionamiento de puertos
+
+David
